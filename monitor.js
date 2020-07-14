@@ -47,27 +47,15 @@ async function monitor() {
     alert = true;
   }
   // block
-  let block = await wan.getLatestBlock();
-  if (block) {
-    let unit = (block.age > 1)? " seconds" : " second"; 
-    metricAlert = (block.age >= config.threshold.blockDelay);
-    metrics.push(new notify.Metric(metricAlert, "Block Delay", block.age + unit, "block number: " + block.number));
+  let amount = await wan.getPeersAmount();
+  if (amount) {
+    metricAlert = (amount < config.threshold.peers);
+    metrics.push(new notify.Metric(metricAlert, "Peers: ", amount));
     alert = alert || metricAlert;
   } else {
-    metrics.push(new notify.Metric(true, "Block Delay", "unknown", "gwan unavailable"));
+    metrics.push(new notify.Metric(true, "Peers", "unknown", "mpc unavailable"));
     alert = true;
   }
-  // balance
-  let account = await wan.getCoinbaseBalance();
-  if (account) {
-    let min = new BigNumber(config.threshold.balance);
-    metricAlert = account.balance.isLessThan(min);
-    metrics.push(new notify.Metric(metricAlert, "Coinbase Balance", account.balance.toString(10) + " WAN", account.address));
-    alert = alert || metricAlert;
-  } else {
-    metrics.push(new notify.Metric(true, "Coinbase Balance", "unknown", "gwan unavailable"));
-    alert = true;
-  } 
   console.log(metrics);
   // report
   await report(alert, metrics);

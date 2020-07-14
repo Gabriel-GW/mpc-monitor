@@ -19,9 +19,8 @@ module.exports = {
     },
     threshold: {
         cpuUsage: 80,    // %
-        memoryUsage: 80, // %
+        memoryUsage: 85, // %
         diskUsage: 80,   // %
-        blockDelay: 60,  // seconds
-        balance: 1       // WAN, as gas of pos transations
+        peers: 20
     }
 };
