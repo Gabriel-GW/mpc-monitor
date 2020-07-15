@@ -50,7 +50,7 @@ async function monitor() {
   let amount = await wan.getPeersAmount();
   if (amount) {
     metricAlert = (amount < config.threshold.peers);
-    metrics.push(new notify.Metric(metricAlert, "Peers: ", amount));
+    metrics.push(new notify.Metric(metricAlert, "Peers", amount));
     alert = alert || metricAlert;
   } else {
     metrics.push(new notify.Metric(true, "Peers", "unknown", "mpc unavailable"));
