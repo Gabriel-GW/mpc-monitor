@@ -1,7 +1,7 @@
 {
-  "name": "validator-monitor",
+  "name": "mpc-monitor",
   "version": "1.0.0",
-  "description": "Wanchain Validator Monitor",
+  "description": "MPC Node Monitor",
   "url": "https://www.wanchain.org",
   "author": {
     "name": "wanchain",
@@ -13,8 +13,8 @@
     "test": "node ./monitor.js test"
   },
   "dependencies": {
-    "web3": "^1.2.1",
     "bignumber.js": "^7.2.1",
-    "nodemailer": "^5.1.1"
+    "nodemailer": "^5.1.1",
+    "web3": "^1.2.1"
   }
 }

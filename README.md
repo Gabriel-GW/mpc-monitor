@@ -63,8 +63,7 @@ The monitor communicates with gwan via IPC, so ipcPath should be set according t
 | cpuUsage     | default is 80, in percentage |
 | memoryUsage  | default is 80, in percentage |
 | diskUsage    | default is 80, in percentage |
-| blockDelay   | default is 60, in seconds, equivalent to 12 blocks |
-| balance      | default is 1 WAN, used for gas of PoS transations |
+| peers        | default is 20 |
 
 ## How to Test
 Execute the command in the validator-monitor directory:
@@ -94,11 +93,11 @@ Reports will be sent by email.
 <br/><br/>
 If there is any alert, an email will be sent immediately, with subject:
 <br/>
-ALERT - Wanchain Validator Monitor
+ALERT - MPC Node Monitor
 <br/><br/>
 Otherwise, a report email will be sent daily, with subject:
 <br/>
-NORMAL - Wanchain Validator Monitor
+NORMAL - MPC Node Monitor
 
 ## FAQ
 ### IPC connect failed
